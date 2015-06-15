@@ -7,9 +7,15 @@ var quizController = require('../controllers/quiz_controller');
 router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz' });
 });
-
+// Definicion de rutas quizes( con solo un elemento)
+/*
 router.get('/quizes/question', quizController.question);
 router.get('/quizes/answer', quizController.answer);
+*/
+// Definicion de rutas quizes( con varios elementos)
+router.get('/quizes/',                     quizController.index);
+router.get('/quizes/:quizId(\\d+)',        quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 
 // GET /author
 router.get('/author', function(req, res) {
@@ -18,3 +24,4 @@ router.get('/author', function(req, res) {
 });
 
 module.exports = router;
+
