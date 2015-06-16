@@ -7,6 +7,9 @@ var quizController = require('../controllers/quiz_controller');
 router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz' });
 });
+// Autoload de comados con :quizId
+router.param('quizId', quizController.load);
+
 // Definicion de rutas quizes( con solo un elemento)
 /*
 router.get('/quizes/question', quizController.question);
