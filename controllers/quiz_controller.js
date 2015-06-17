@@ -48,10 +48,26 @@ exports.load = function(req, res, next, quizId){
 };
 
 //GET /quizes
+// Para el ejercicio lo modificaremos aqui
+
 exports.index = function(req, res){
-	models.Quiz.findAll().then(function(quizes){
-		res.render('quizes/index.ejs', {quizes: quizes});
-	}).catch(function(error){next(error);});
+
+	if (req.query.search !== undefined) {
+
+		var filtro  = (req.query.search || '').replace(" ", "%");
+		filtro = "%"+filtro+"%";
+		models.Quiz.findAll(
+			{where: ["pregunta like ?", filtro], order: 'pregunta ASC'}).then(function(quizes){
+				res.render('quizes/index.ejs', {quizes: quizes});
+		}).catch(function(error){next(error);});
+
+	} else{
+
+		models.Quiz.findAll().then(function(quizes){
+			res.render('quizes/index.ejs', {quizes: quizes});
+		}).catch(function(error){next(error);});
+	}
+
 };
 
 // GET /quizes/:id (renombraremos quizes.ejs por show.ejs)

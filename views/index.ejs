@@ -1,4 +1,7 @@
     <h1> Bienvenido a <%= title %></h1>
-    <p> El portal donde podrá crear sus propios juegos!!</p>
-
-
+    <p> El portal donde podrá crear sus propios juegos!!</p><br/>
+    <!-- Aqui pondremos el ejercicio o texto a buscar -->
+    <form method="get" action="/quizes">
+	    <input type="text"  name="search" value="texto_a_buscar" />    
+	    <input type="submit" value="Buscar" />
+	</form>
