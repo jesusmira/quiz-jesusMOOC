@@ -2,8 +2,14 @@
 	<table>
 	<% var i; for (i=0; i< quizes.length; i++){ %>
 		<tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
-	</table>
 	<%}%> 
+	</table>
 <%}else{%>
 	<p> No existe ninguna pregunta</p>
 <%}%>	
+    <!-- Aqui pondremos el ejercicio o texto a buscar -->
+    <form method="get" action="/quizes">
+	    <input type="text"  name="search" value="texto_a_buscar" />    
+	    <input type="submit" value="Buscar" />
+	</form>
+<a href="/quizes/new"><button type="button">Crear Pregunta</button></a>
