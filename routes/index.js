@@ -25,6 +25,8 @@ router.post('/quizes/create',              quizController.create);
 // Añadimos la definicion de rutas para editar los elementos de la BD
 router.get('/quizes/:quizId(\\d+)/edit',   quizController.edit);
 router.put('/quizes/:quizId(\\d+)',        quizController.update);
+// Añadimos la definicion de ruta para borrar elementos en la BD
+router.delete('/quizes/:quizId(\\d+)',        quizController.destroy);
 
 // GET /author
 router.get('/author', function(req, res) {
