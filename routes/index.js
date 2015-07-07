@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 });
 // Autoload de comados con :quizId
 router.param('quizId', quizController.load);
-router.param('commentId ', commentController.load); // autoload : commentId
+router.param('commentId', commentController.load); // autoload : commentId
 
 //Definicion de rutas de sesion
 router.get('/login', sessionController.new);      // formulario login
